@@ -1,0 +1,131 @@
+@import "tailwindcss";
+@import "./styles/animations.css";
+@import "./styles/masks.css";
+
+:root {
+  --background: #0f1010;
+  --foreground: #f5f0eb;
+  --card: #3d3d3d;
+  --card-foreground: #f5f0eb;
+  --popover: #3d3d3d;
+  --popover-foreground: #f5f0eb;
+  --primary: #ffffff;
+  --primary-foreground: #0a0a0a;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #f5f0eb;
+  --muted: color-mix(in srgb, #f5f0eb 8%, #0f1010);
+  --muted-foreground: color-mix(in srgb, #f5f0eb 65%, #0f1010);
+  --accent: #d4b896;
+  --accent-foreground: #f5f0eb;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: color-mix(in srgb, #f5f0eb 12%, #0f1010);
+  --input: color-mix(in srgb, #f5f0eb 12%, #0f1010);
+  --ring: #ffffff;
+  --radius: 1rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: "Inter Tight", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-tight: "Inter Tight", sans-serif;
+  --font-mono: monospace;
+
+  --radius: var(--radius);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    outline-color: color-mix(in srgb, var(--color-ring) 50%, transparent);
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245, 240, 235, 0.15) rgba(0, 0, 0, 0);
+}
+
+html {
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Inter Tight", sans-serif;
+  position: relative;
+  min-height: 100vh;
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+h2 {
+  font-weight: 550;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  letter-spacing: -0.015em;
+}
+
+/* @cards/subtle-dark */
+.card {
+  backdrop-filter: blur(8px);
+  background: linear-gradient(to bottom right, color-mix(in srgb, var(--color-card) 70%, transparent), color-mix(in srgb, var(--color-card) 40%, transparent));
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  border: 1px solid var(--color-card);
+}
+
+/* @buttons/primary-button-styles/white */
+.btn-primary {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 95%, var(--color-foreground)) 0%, var(--color-primary) 50%, color-mix(in srgb, var(--color-primary) 95%, var(--color-background)) 100%);
+  box-shadow: inset 0 2px 3px 0 color-mix(in srgb, var(--color-foreground) 20%, transparent), inset 0 -2px 3px 0 color-mix(in srgb, var(--color-background) 25%, transparent), 0 2px 4px -1px color-mix(in srgb, var(--color-background) 40%, transparent);
+}
+
+/* @buttons/secondary-button-styles/subtle-dark */
+.btn-secondary {
+  backdrop-filter: blur(8px);
+  background: linear-gradient(to bottom right, color-mix(in srgb, var(--color-secondary) 80%, transparent), var(--color-secondary));
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  border: 1px solid var(--color-secondary);
+}
